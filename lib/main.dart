@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             const Text(
               'You have pushed the button this many times:',
-              // observing the sync from forked repo
+              // observing the sync from forked repo....
             ),
             Text(
               '$_counter',
