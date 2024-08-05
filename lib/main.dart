@@ -1,4 +1,5 @@
 import 'package:delivery_app/common/color_extension.dart';
+import 'package:delivery_app/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: TColor.primary),
         useMaterial3: false,
       ),
-      home: Container(),
+      home: const SplashView(),
     );
   }
 }
