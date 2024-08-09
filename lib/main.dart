@@ -13,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Online Groceries',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         fontFamily: "Gilroy",
         colorScheme: ColorScheme.fromSeed(seedColor: TColor.primary),
