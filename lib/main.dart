@@ -13,13 +13,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Online Groceries',
-      debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner:
+          false, // to disable the banner that appears when running in debug mode.
       theme: ThemeData(
         fontFamily: "Gilroy",
         colorScheme: ColorScheme.fromSeed(seedColor: TColor.primary),
         useMaterial3: false,
       ),
-      home: const SplashView(),
+      home:
+          const SplashView(), // to display the splash screen which serves as the starting page as well as base of the app.
     );
   }
 }

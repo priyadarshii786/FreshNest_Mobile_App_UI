@@ -1,4 +1,7 @@
+import 'package:delivery_app/common_widget/round_button.dart';
+import 'package:delivery_app/view/login/sign_in_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class WelcomeView extends StatefulWidget {
   const WelcomeView({super.key});
@@ -8,6 +11,13 @@ class WelcomeView extends StatefulWidget {
 }
 
 class _WelcomeViewState extends State<WelcomeView> {
+  // To remove the status bar which appears on the top of the screen showing battery percentage, networks and notifications.
+  @override
+  void initState() {
+    super.initState();
+    SystemChrome.setEnabledSystemUIMode(SystemUiMode.leanBack);
+  }
+
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -21,11 +31,19 @@ class _WelcomeViewState extends State<WelcomeView> {
             height: media.height,
             fit: BoxFit.cover,
           ),
-          const SafeArea(
+          SafeArea(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                Row(
+                Image.asset(
+                  "assets/img/app_logo.png",
+                  width: 60,
+                  height: 60,
+                ),
+                const SizedBox(
+                  height: 8,
+                ),
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -37,7 +55,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                     ),
                   ],
                 ),
-                Row(
+                const Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
@@ -49,8 +67,25 @@ class _WelcomeViewState extends State<WelcomeView> {
                     ),
                   ],
                 ),
-                SizedBox(
-                  height: 25,
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  child: RoundButton(
+                    title: "Get  Started",
+                    onPressed: () {
+                      // On Pressing the "Get Started" button, function will be called and we will flock to the "SignInview" Screen.
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SignInView(),
+                          ));
+                    },
+                  ),
+                ),
+                const SizedBox(
+                  height: 46,
                 ),
               ],
             ),
