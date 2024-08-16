@@ -1,5 +1,6 @@
 import 'package:delivery_app/common/color_extension.dart';
 import 'package:delivery_app/common_widget/round_button.dart';
+import 'package:delivery_app/view/login/verification_view.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -12,18 +13,23 @@ class SignInView extends StatefulWidget {
 }
 
 class _SignInViewState extends State<SignInView> {
+  // --------------------------------------------------------------------------------------------------------------------------
+  // Basically for the country code and the country picker. It is important to notice the place where it is written right now!!!
   TextEditingController txtMobile = TextEditingController();
   FlCountryCodePicker countryPicker = const FlCountryCodePicker();
   late CountryCode countryCode;
 
+  // Another thing worth noticing!!!
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     countryCode = countryPicker.countryCodes
-        .firstWhere((element) => element.name == "United Kingdom");
+        .firstWhere((element) => element.name == "India");
   }
+  // --------------------------------------------------------------------------------------------------------------------------
 
+  // Here now comes the actual codes.
   @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
@@ -160,8 +166,14 @@ class _SignInViewState extends State<SignInView> {
                       child: RoundIconButton(
                         title: "Continue with Google",
                         icon: "assets/img/google_logo.png",
-                        bgColor: const Color(0xff5389EC),
-                        onPressed: () {},
+                        bgColor: const Color(0xff5383EC),
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const VerificationView()));
+                        },
                       ),
                     ),
 
