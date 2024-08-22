@@ -1,5 +1,6 @@
 import 'package:delivery_app/common/color_extension.dart';
 import 'package:delivery_app/common_widget/line_textfield.dart';
+import 'package:delivery_app/view/login/select_location_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -67,35 +68,44 @@ class _VerificationViewState extends State<VerificationView> {
                       title: "Code",
                       placeholder: "- - - -",
                       controller: txtOTP),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
+                  SizedBox(
+                    height: media.width * 0.3,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        "Code",
-                        style: TextStyle(
-                            color: TColor.secondaryText,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      TextField(
-                        controller: txtOTP,
-                        keyboardType: TextInputType.phone,
-                        decoration: InputDecoration(
-                          border: InputBorder.none,
-                          enabledBorder: InputBorder.none,
-                          focusedBorder: InputBorder.none,
-                          hintText: "- - - -",
-                          hintStyle: TextStyle(
-                            color: TColor.placeholder,
-                            fontSize: 17,
-                          ),
+                      TextButton(
+                        onPressed: () {},
+                        child: Text(
+                          "Resend Code",
+                          style: TextStyle(
+                              color: TColor.primary,
+                              fontSize: 18,
+                              fontWeight: FontWeight.w500),
                         ),
                       ),
-                      Container(
-                        width: double.maxFinite,
-                        height: 1,
-                        color: const Color(0xffE2E2E2),
+                      InkWell(
+                        borderRadius: BorderRadius.circular(30),
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const SelectLocationView()));
+                        },
+                        child: Container(
+                          width: 60,
+                          height: 60,
+                          alignment: Alignment.center,
+                          decoration: BoxDecoration(
+                              color: TColor.primary,
+                              borderRadius: BorderRadius.circular(30)),
+                          child: Image.asset(
+                            "assets/img/next.png",
+                            width: 20,
+                            height: 20,
+                          ),
+                        ),
                       )
                     ],
                   )
