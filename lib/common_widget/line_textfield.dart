@@ -2,7 +2,7 @@ import 'package:delivery_app/common/color_extension.dart';
 import 'package:flutter/material.dart';
 
 class LineTextField extends StatelessWidget {
-  // ---------------------------------------------------------------------------------------
+  //* ---------------------------------------------------------------------------------------
   final TextEditingController controller;
   final String title;
   final String placeholder;
@@ -15,7 +15,7 @@ class LineTextField extends StatelessWidget {
       required this.placeholder,
       this.right});
 
-  // ---------------------------------------------------------------------------------------
+  //* ---------------------------------------------------------------------------------------
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class LineTextField extends StatelessWidget {
               fontWeight: FontWeight.w600),
         ),
         TextField(
-          // controller: txtOTP,
+          controller: controller,
           keyboardType: TextInputType.phone,
           decoration: InputDecoration(
             suffixIcon: right,
