@@ -15,6 +15,7 @@ class _SelectLocationViewState extends State<SelectLocationView> {
   @override
   //
   TextEditingController txtOTP = TextEditingController();
+  @override
   Widget build(BuildContext context) {
     var media = MediaQuery.sizeOf(context);
     return Stack(
@@ -52,14 +53,20 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                 children: [
                   Image.asset(
                     "assets/img/select_location.png",
-                    width: media.width * 0.7,
+                    width: media.width * 0.6,
+                  ),
+                  SizedBox(
+                    height: media.width * 0.1,
                   ),
                   Text(
                     "Select Your Location",
                     style: TextStyle(
-                        color: TColor.secondaryText,
+                        color: TColor.primaryText,
                         fontSize: 26,
                         fontWeight: FontWeight.w600),
+                  ),
+                  SizedBox(
+                    height: media.width * 0.03,
                   ),
                   Text(
                     "Switch on your location to stay in tune with\nwhat's happening in your area",
@@ -72,6 +79,66 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                   const SizedBox(
                     height: 15,
                   ),
+                  SizedBox(
+                    height: media.width * 0.1,
+                  ),
+                  // ? -------------------------------------------------------------
+                  // ? copied from the common file(ie; line_textfield.dart)
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      Text(
+                        "Your Zone",
+                        style: TextStyle(
+                            color: TColor.textTittle,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w600),
+                      ),
+
+                      // ! ----------------------------------------------------------
+                      // ! Important (Making the Drop-down button)
+
+                      Container(
+                        height: 50,
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton(
+                              onChanged: (sObj) {},
+                              icon: Icon(
+                                Icons.expand_more,
+                                color: TColor.textTittle,
+                              ),
+                              hint: placeholder,
+                              hintStyle: TextStyle(
+                                color: TColor.placeholder,
+                                fontSize: 17,
+                              ),
+                              isExpanded: true,
+                              items: ["Zone 1", "Zone 2"].map((obj) {
+                                return DropdownMenuItem(
+                                    value: obj,
+                                    child: Text(
+                                      "Your Zone",
+                                      style: TextStyle(
+                                          color: TColor.secondaryText,
+                                          fontSize: 16,
+                                          fontWeight: FontWeight.w600),
+                                    ));
+                              }).toList()),
+                        ),
+                      ),
+
+                      // ! ----------------------------------------------------------
+
+                      Container(
+                        width: double.maxFinite,
+                        height: 1,
+                        color: const Color(0xffE2E2E2),
+                      ),
+                    ],
+                  ),
+                  // ? ------------------------------------------------------------
+                  Row(),
                 ],
               ),
             ),

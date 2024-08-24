@@ -10,7 +10,7 @@ class RoundButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      // Important parameters of the "Get Started" button.
+      //! Important parameters of the "Get Started" button.
       onPressed: onPressed,
       height: 60,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(19)),
@@ -42,7 +42,7 @@ class RoundIconButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      // Important parameters of the "Get Started" button.
+      //! Important parameters of the "Get Started" button.
       onPressed: onPressed,
       height: 60,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(19)),
