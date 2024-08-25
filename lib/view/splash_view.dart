@@ -44,7 +44,7 @@ class _SplashViewState extends State<SplashView> {
     //! Important parameters of sketching the splash screen.
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: TColor.darkGray,
+      backgroundColor: TColor.primaryText,
       body: Center(
         child: Image.asset("assets/img/splash_logo.png",
             width: media.width * 0.5), //Splash logo

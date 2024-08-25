@@ -2,34 +2,40 @@ import 'package:delivery_app/common/color_extension.dart';
 import 'package:delivery_app/common_widget/dropdown.dart';
 import 'package:delivery_app/common_widget/line_textfield.dart';
 import 'package:delivery_app/common_widget/round_button.dart';
-import 'package:delivery_app/view/login/login_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class SelectLocationView extends StatefulWidget {
-  const SelectLocationView({super.key});
+class LogInView extends StatefulWidget {
+  const LogInView({super.key});
 
   @override
-  State<SelectLocationView> createState() => _SelectLocationViewState();
+  State<LogInView> createState() => _LogInViewState();
 }
 
-class _SelectLocationViewState extends State<SelectLocationView> {
-  @override
-  //
-  TextEditingController txtOTP = TextEditingController();
+class _LogInViewState extends State<LogInView> {
+  //! ------------------------------------------------------------
+  //! Configuring the buttons of Email and Password
+
+  TextEditingController txtEmail = TextEditingController();
+  TextEditingController txtPassword = TextEditingController();
+
+  //! ------------------------------------------------------------
+
   @override
   Widget build(BuildContext context) {
+    //* ------------------------------------------------------------
+    //* Copying from the "select_location_view.dart" file.
     var media = MediaQuery.sizeOf(context);
     return Stack(children: [
       Container(
         color: Colors.white,
-        child: Image.asset(
-          "assets/img/bottom_bg.png",
-          height: media.height,
-          width: media.width,
-          fit: BoxFit.cover,
-        ),
+        // child: Image.asset(
+        //   "assets/img/color_logo.png", //? Doing some needful changes in the location screen to change it to desired login screen.
+        //   height: media.height,
+        //   width: media.width,
+        //   fit: BoxFit.cover,
+        // ),
       ),
       Scaffold(
         appBar: AppBar(
@@ -51,17 +57,25 @@ class _SelectLocationViewState extends State<SelectLocationView> {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment:
+                  CrossAxisAlignment.start, //? Doing some needful changes
               children: [
-                Image.asset(
-                  "assets/img/select_location.png",
-                  width: media.width * 0.6,
+                Row(
+                  //? ------- Doing some needful changes -------
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Image.asset(
+                      "assets/img/color_logo.png",
+                      width: 40,
+                    ),
+                  ],
                 ),
+                //? --------------------------------------------
                 SizedBox(
-                  height: media.width * 0.1,
+                  height: media.width * 0.15,
                 ),
                 Text(
-                  "Select Your Location",
+                  "Loging", //? Doing some needful changes
                   style: TextStyle(
                       color: TColor.primaryText,
                       fontSize: 26,
@@ -71,8 +85,8 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                   height: media.width * 0.03,
                 ),
                 Text(
-                  "Switch on your location to stay in tune with\nwhat's happening in your area",
-                  textAlign: TextAlign.center,
+                  "Enter your E-mail and Password", //? Doing some needful changes
+
                   style: TextStyle(
                       color: TColor.primaryText,
                       fontSize: 16,
@@ -84,40 +98,26 @@ class _SelectLocationViewState extends State<SelectLocationView> {
                 SizedBox(
                   height: media.width * 0.1,
                 ),
+                //! ------------------------------------------------------------
 
-                // ! ----------------------------------------------------------
-                // ! Important (Importing the Drop-down button from the common widget)
-                Dropdown(
-                    title: "Your Zone",
-                    placeholder: "Select your zone",
-                    valueList: const ["Zone 1", "Zone 2"],
-                    didChange: (sObj) {}),
-                // ! ----------------------------------------------------------
+                //! ------------------------------------------------------------
                 SizedBox(
                   height: media.width * 0.06,
                 ),
-                Dropdown(
-                    title: "Your Area",
-                    placeholder: "Your area type",
-                    valueList: const ["Area 1", "Area 2"],
-                    didChange: (sObj) {}),
-
                 SizedBox(
                   height: media.width * 0.1,
                 ),
-                //*----------------------------------------------------------
-                //* Copying this round button from the "welcome_view.dart" file. There this round button was used for the "Get Started" purpose.
                 RoundButton(
-                  title: "Submit",
+                  //? Doing some needful changes
+                  title: "Log In",
                   onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LogInView(),
-                        ));
+                    // Navigator.push(
+                    //     context,
+                    //     MaterialPageRoute(
+                    //       builder: (context) => const SignInView(),
+                    //     ));
                   },
                 ),
-                //*-------------------------------------------------------
               ],
             ),
           ),
@@ -125,4 +125,5 @@ class _SelectLocationViewState extends State<SelectLocationView> {
       ),
     ]);
   }
+  //* ------------------------------------------------------------
 }
