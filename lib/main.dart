@@ -1,5 +1,7 @@
-import 'package:delivery_app/common/color_extension.dart';
-import 'package:delivery_app/view/splash_view.dart';
+import 'package:FreshNest/common/color_extension.dart';
+import 'package:FreshNest/view/splash_view.dart';
+import 'package:FreshNest/common/color_extension.dart';
+import 'package:FreshNest/view/splash_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Online Groceries',
+      title: 'FreshNest',
       debugShowCheckedModeBanner:
           false, // to disable the banner that appears when running in debug mode.
       theme: ThemeData(

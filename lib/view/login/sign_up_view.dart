@@ -2,22 +2,23 @@ import 'package:FreshNest/common/color_extension.dart';
 import 'package:FreshNest/common_widget/dropdown.dart';
 import 'package:FreshNest/common_widget/line_textfield.dart';
 import 'package:FreshNest/common_widget/round_button.dart';
-import 'package:FreshNest/view/login/sign_up_view.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
-class LogInView extends StatefulWidget {
-  const LogInView({super.key});
+class SignUpView extends StatefulWidget {
+  const SignUpView({super.key});
 
   @override
-  State<LogInView> createState() => _LogInViewState();
+  State<SignUpView> createState() => _SignUpViewState();
 }
 
-class _LogInViewState extends State<LogInView> {
+class _SignUpViewState extends State<SignUpView> {
   //! ------------------------------------------------------------
-  //! Configuring the buttons of Email and Password
+  //! Configuring the buttons of Email, Password, and username.
 
+  TextEditingController txtUserName = TextEditingController();
   TextEditingController txtEmail = TextEditingController();
   TextEditingController txtPassword = TextEditingController();
 
@@ -26,31 +27,26 @@ class _LogInViewState extends State<LogInView> {
 
   //! ------------------------------------------------------------
 
+  //! ------------------------------------------------------------
+  //! Copying the whole code from the "sign_in_view.dart" file
+
   @override
   Widget build(BuildContext context) {
-    //* ------------------------------------------------------------
-    //* Copying from the "select_location_view.dart" file.
     var media = MediaQuery.sizeOf(context);
     return Stack(children: [
       Container(
         color: Colors.white,
-        // child: Image.asset(
-        //   "assets/img/color_logo.png", //? Doing some needful changes in the location screen to change it to desired login screen.
-        //   height: media.height,
-        //   width: media.width,
-        //   fit: BoxFit.cover,
-        // ),
       ),
       Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
           leading: IconButton(
-            //! --------------------------------------------------
+            //? ------------ Working of the back button of the screen ------------
             onPressed: () {
               Navigator.pop(context);
             },
-            //! --------------------------------------------------
+            //? ------------------------------------------------------------
             icon: Image.asset(
               "assets/img/back.png",
               width: 20,
@@ -81,7 +77,7 @@ class _LogInViewState extends State<LogInView> {
                   height: media.width * 0.15,
                 ),
                 Text(
-                  "Login", //? Doing some needful changes
+                  "Sign Up",
                   style: TextStyle(
                       color: TColor.primaryText,
                       fontSize: 26,
@@ -91,8 +87,7 @@ class _LogInViewState extends State<LogInView> {
                   height: media.width * 0.03,
                 ),
                 Text(
-                  "Enter your E-mail and Password", //? Doing some needful changes
-
+                  "Enter your Credentials to Continue",
                   style: TextStyle(
                       color: TColor.primaryText,
                       fontSize: 16,
@@ -104,8 +99,16 @@ class _LogInViewState extends State<LogInView> {
                 SizedBox(
                   height: media.width * 0.1,
                 ),
-                //! ------------------------------------------------------------
-                //! copied from the verification_view.dart file, and did changes to suit email and password.
+                //? ---------- necessary changes to suit the SignUp Screen. ----------
+                LineTextField(
+                  title: "UserName",
+                  placeholder: "Enter your UserName",
+                  controller: txtUserName,
+                ),
+                SizedBox(
+                  height: media.width * 0.07,
+                ),
+                //? ----------------------------------------
                 LineTextField(
                   title: "E-mail",
                   placeholder: "Enter your Email-address",
@@ -131,30 +134,44 @@ class _LogInViewState extends State<LogInView> {
                         color: TColor.textTittle,
                       )),
                 ),
-
-                //? --------------
-                //? copying from the above logo and removed the logo from it.
-                Row(
-                  mainAxisAlignment: MainAxisAlignment
-                      .end, //? changed the alignment from center to end.
-                  children: [
-                    //*  --------------------------Designed and written this part by self.
-                    TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Forgot Password?",
+                SizedBox(
+                  height: media.width * 0.04,
+                ),
+                RichText(
+                    text: TextSpan(
                         style: TextStyle(
-                            color: TColor.primaryText,
+                            color: TColor.secondaryText,
                             fontSize: 14,
                             fontWeight: FontWeight.w500),
+                        children: [
+                      const TextSpan(text: "By Continuing you agree to the "),
+                      TextSpan(
+                          text: "Terms of Service",
+                          style: TextStyle(
+                              color: TColor.primary,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              print("Terms of Service Clicked");
+                            }),
+                      const TextSpan(
+                        text: " and ",
                       ),
-                    ),
-                    //*  --------------------------
-                  ],
-                ),
-                //? ----------------------------
-
-                //! ------------------------------------------------------------
+                      TextSpan(
+                          text: "Privacy & Policy",
+                          style: TextStyle(
+                              color: TColor.primary,
+                              fontSize: 14,
+                              fontWeight: FontWeight.w500),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () {
+                              print("Privacy Policy Clicked");
+                            }),
+                      const TextSpan(
+                        text: " of FreshNest. ",
+                      ),
+                    ])),
                 SizedBox(
                   height: media.width * 0.06,
                 ),
@@ -163,7 +180,7 @@ class _LogInViewState extends State<LogInView> {
                 ),
                 RoundButton(
                   //? Doing some needful changes
-                  title: "Log In",
+                  title: "Sign Up",
                   onPressed: () {
                     // Navigator.push(
                     //     context,
@@ -175,24 +192,20 @@ class _LogInViewState extends State<LogInView> {
                 SizedBox(
                   height: media.width * 0.02,
                 ),
-                //* ----------------------------------------------------------
-                //* copying from just above the Row()
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
+                      //* ---------------------------------------------------
                       onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => const SignUpView()));
+                        Navigator.pop(context);
                       },
+                      //* ---------------------------------------------------
                       child: Row(
-                        //? wrapped the text here with row.
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            "Don't have an Account?",
+                            "Already have an Account?",
                             style: TextStyle(
                                 color: TColor.primaryText,
                                 fontSize: 14,
@@ -201,22 +214,18 @@ class _LogInViewState extends State<LogInView> {
                           const SizedBox(
                             width: 8,
                           ),
-                          //? --------------------------------------------------
-                          //? copying the above Text()
                           Text(
-                            "Signup",
+                            "Sign In",
                             style: TextStyle(
                                 color: TColor.primary,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w600),
                           ),
-                          //? --------------------------------------------------
                         ],
                       ),
                     ),
                   ],
                 ),
-                //* ----------------------------------------------------------
               ],
             ),
           ),
@@ -224,5 +233,5 @@ class _LogInViewState extends State<LogInView> {
       ),
     ]);
   }
-  //* ------------------------------------------------------------
+  //! ------------------------------------------------------------
 }

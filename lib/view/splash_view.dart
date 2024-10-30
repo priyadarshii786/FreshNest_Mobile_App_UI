@@ -1,5 +1,5 @@
-import 'package:delivery_app/common/color_extension.dart';
-import 'package:delivery_app/view/login/welcome_view.dart';
+import 'package:FreshNest/common/color_extension.dart';
+import 'package:FreshNest/view/login/welcome_view.dart';
 import 'package:flutter/material.dart';
 
 class SplashView extends StatefulWidget {
@@ -44,10 +44,10 @@ class _SplashViewState extends State<SplashView> {
     //! Important parameters of sketching the splash screen.
     var media = MediaQuery.sizeOf(context);
     return Scaffold(
-      backgroundColor: TColor.primaryText,
+      backgroundColor: TColor.splash_white,
       body: Center(
         child: Image.asset("assets/img/splash_logo.png",
-            width: media.width * 0.5), //Splash logo
+            width: media.width * 1), //Splash logo
       ),
     );
   }
