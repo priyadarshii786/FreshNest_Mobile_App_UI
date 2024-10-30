@@ -1,6 +1,6 @@
-import 'package:delivery_app/common/color_extension.dart';
-import 'package:delivery_app/common_widget/round_button.dart';
-import 'package:delivery_app/view/login/verification_view.dart';
+import 'package:FreshNest/common/color_extension.dart';
+import 'package:FreshNest/common_widget/round_button.dart';
+import 'package:FreshNest/view/login/verification_view.dart';
 import 'package:fl_country_code_picker/fl_country_code_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -89,6 +89,8 @@ class _SignInViewState extends State<SignInView> {
                       ),
                       child: Column(
                         children: [
+                          //* --------------------------------------------
+                          //* -------- Main Working Code of this Screen --------
                           TextField(
                             controller: txtMobile,
                             keyboardType: TextInputType.phone,
@@ -137,6 +139,7 @@ class _SignInViewState extends State<SignInView> {
                               ),
                             ),
                           ),
+                          //* -----------------------------------------
                           Container(
                             width: double.maxFinite,
                             height: 1,
@@ -167,6 +170,7 @@ class _SignInViewState extends State<SignInView> {
                         title: "Continue with Google",
                         icon: "assets/img/google_logo.png",
                         bgColor: const Color(0xff5383EC),
+                        //! -------------------------------------
                         onPressed: () {
                           Navigator.push(
                               context,
@@ -174,6 +178,7 @@ class _SignInViewState extends State<SignInView> {
                                   builder: (context) =>
                                       const VerificationView()));
                         },
+                        //! -------------------------------------
                       ),
                     ),
 
@@ -188,7 +193,9 @@ class _SignInViewState extends State<SignInView> {
                         title: "Continue with Facebook",
                         icon: "assets/img/fb_logo.png",
                         bgColor: const Color(0xff4A66AC),
+                        //! -------------------------------------
                         onPressed: () {},
+                        //! -------------------------------------
                       ),
                     )
                   ],

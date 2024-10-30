@@ -1,4 +1,4 @@
-import 'package:delivery_app/common/color_extension.dart';
+import 'package:FreshNest/common/color_extension.dart';
 import 'package:flutter/material.dart';
 
 class LineTextField extends StatelessWidget {
@@ -6,6 +6,11 @@ class LineTextField extends StatelessWidget {
   final TextEditingController controller;
   final String title;
   final String placeholder;
+  //? ------------------------------------------------------
+  //? Written while modifying the Login screen.
+  final TextInputType? keyboardType;
+  final bool obscureText;
+  //? ------------------------------------------------------
   final Widget? right;
 
   const LineTextField(
@@ -13,7 +18,9 @@ class LineTextField extends StatelessWidget {
       required this.controller,
       required this.title,
       required this.placeholder,
-      this.right});
+      this.right,
+      this.keyboardType,
+      this.obscureText = false});
 
   //* ---------------------------------------------------------------------------------------
 
@@ -26,13 +33,17 @@ class LineTextField extends StatelessWidget {
         Text(
           title,
           style: TextStyle(
-              color: TColor.secondaryText,
+              color: TColor.textTittle,
               fontSize: 16,
               fontWeight: FontWeight.w600),
         ),
         TextField(
           controller: controller,
-          keyboardType: TextInputType.phone,
+          //? ------------------------------------------------------
+          //? Written while modifying the Login screen.
+          keyboardType: keyboardType,
+          obscureText: obscureText,
+          //? ------------------------------------------------------
           decoration: InputDecoration(
             suffixIcon: right,
             border: InputBorder.none,

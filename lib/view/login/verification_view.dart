@@ -1,6 +1,6 @@
-import 'package:delivery_app/common/color_extension.dart';
-import 'package:delivery_app/common_widget/line_textfield.dart';
-import 'package:delivery_app/view/login/select_location_view.dart';
+import 'package:FreshNest/common/color_extension.dart';
+import 'package:FreshNest/common_widget/line_textfield.dart';
+import 'package:FreshNest/view/login/select_location_view.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -34,9 +34,11 @@ class _VerificationViewState extends State<VerificationView> {
             backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
+              //! -------------------------------------
               onPressed: () {
                 Navigator.pop(context);
               },
+              //! -------------------------------------
               icon: Image.asset(
                 "assets/img/back.png",
                 width: 20,
@@ -75,7 +77,9 @@ class _VerificationViewState extends State<VerificationView> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       TextButton(
+                        //! -------------------------------------
                         onPressed: () {},
+                        //! -------------------------------------
                         child: Text(
                           "Resend Code",
                           style: TextStyle(
@@ -86,6 +90,7 @@ class _VerificationViewState extends State<VerificationView> {
                       ),
                       InkWell(
                         borderRadius: BorderRadius.circular(30),
+                        //! -------------------------------------
                         onTap: () {
                           Navigator.push(
                               context,
@@ -93,6 +98,7 @@ class _VerificationViewState extends State<VerificationView> {
                                   builder: (context) =>
                                       const SelectLocationView()));
                         },
+                        //! -------------------------------------
                         child: Container(
                           width: 60,
                           height: 60,

@@ -1,5 +1,5 @@
-import 'package:delivery_app/common_widget/round_button.dart';
-import 'package:delivery_app/view/login/sign_in_view.dart';
+import 'package:FreshNest/common_widget/round_button.dart';
+import 'package:FreshNest/view/login/sign_in_view.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -70,10 +70,14 @@ class _WelcomeViewState extends State<WelcomeView> {
                 const SizedBox(
                   height: 20,
                 ),
+                //! ------------ Keep in mind to use padding this way.------------
+                
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
+                  //! -----------------------------------------------------------
                   child: RoundButton(
                     title: "Get  Started",
+                    //* --------------------------------------------------
                     onPressed: () {
                       // On Pressing the "Get Started" button, function will be called and we will flock to the "SignInview" Screen.
                       Navigator.push(
@@ -82,6 +86,7 @@ class _WelcomeViewState extends State<WelcomeView> {
                             builder: (context) => const SignInView(),
                           ));
                     },
+                    //* --------------------------------------------------
                   ),
                 ),
                 const SizedBox(

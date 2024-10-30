@@ -1,16 +1,21 @@
-import 'package:delivery_app/common/color_extension.dart';
+import 'package:FreshNest/common/color_extension.dart';
 import 'package:flutter/material.dart';
 
+
+//! ------------------------------------------------------------
 class RoundButton extends StatelessWidget {
+  //? -------------------------------------
+  //? It's important to notice where these things are currently written.
   final String title;
   final VoidCallback onPressed;
 
   const RoundButton({super.key, required this.title, required this.onPressed});
+  //? -------------------------------------
 
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
-      //! Important parameters of the "Get Started" button.
+      //* Important parameters of the "Get Started" button.
       onPressed: onPressed,
       height: 60,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(19)),
@@ -25,8 +30,13 @@ class RoundButton extends StatelessWidget {
     );
   }
 }
+//! ------------------------------------------------------------
 
+
+//! ------------------------------------------------------------
 class RoundIconButton extends StatelessWidget {
+  //? -------------------------------------
+  //? It's important to notice where these things are currently written.
   final String title;
   final String icon;
   final Color bgColor;
@@ -39,6 +49,7 @@ class RoundIconButton extends StatelessWidget {
       required this.bgColor,
       required this.onPressed});
 
+  //? -------------------------------------
   @override
   Widget build(BuildContext context) {
     return MaterialButton(
@@ -70,3 +81,4 @@ class RoundIconButton extends StatelessWidget {
     );
   }
 }
+//! ------------------------------------------------------------
